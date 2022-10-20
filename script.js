@@ -55,3 +55,31 @@ function retrieveOriginalList() {
 
 // write function to show lenght, items with index
 
+function showElements() {
+    detailsList = document.createElement("ul");
+    detailsList.classList.add("array-details-list-elements")
+    detailsList.style.listStyleType = "none";
+    document.body.appendChild(detailsList)
+
+    array.forEach(function(x){
+        li = document.createElement("li");
+        detailsList.appendChild(li).innerHTML = x
+    });
+}
+
+function showIndexElements() {
+    detailsList = document.createElement("ul");
+    detailsList.classList.add("array-details-list-indexes")
+    detailsList.style.listStyleType = "none";
+    document.body.appendChild(detailsList)
+
+    array.forEach(function(x){
+        li = document.createElement("li");
+        detailsList.appendChild(li).innerHTML = "Index: <b>" + array.indexOf(x) + "</b> ---> " + x
+    });
+}
+
+function removeListDetails() {
+    document.querySelectorAll(".array-details-list-elements").forEach(function(x){x.remove()})
+    document.querySelectorAll(".array-details-list-indexes").forEach(function(x){x.remove()})
+}
