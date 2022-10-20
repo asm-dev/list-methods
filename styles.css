@@ -1,3 +1,7 @@
 .list-method-button{
     margin-top: 2em;
 }
+
+.retrieve-list{
+    visibility: hidden;
+}
