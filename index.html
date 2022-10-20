@@ -1,13 +1,23 @@
 <!doctype html>
 <html lang="en">
+
   <head>
+    
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+
     <meta charset="utf-8">
     <title>Python lists</title>
+  
   </head>
+
   <body>
+
     <h1>Let's have some fun experimenting with Python lists</h1>
-    <h2>List</h2>
-    <p>[1, 2, 3, 4, 5]</p>
+
+    <h2>Original list</h2>
+    <p>[ 1, 2, 3, 4, 5]</p>
+
     <h2>Methods</h2>
     <ul>
         <li>pop() -- Removes the element at the specified position</li>
@@ -22,5 +32,16 @@
         <li>reverse() -- Reverses the order of the list</li>
         <li>sort() -- Sorts the list</li>
     </ul>
+
+    <form>
+      <input type="text">
+      <input type="submit">
+    </form>
+
+    <button type="button" class="list-method-button" onclick="reverseList()">reverse()</button>
+
+    <h2>New list</h2>
+    <p id="new-list">[ 1, 2, 3, 4, 5]</p>
+
   </body>
 </html>
