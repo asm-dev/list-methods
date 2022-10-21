@@ -67,6 +67,8 @@ function showElements() {
     });
 }
 
+// POR MEJORAR --> Si ya hay detalles, o Alert o eliminar viejos y añadir los nuevos, también es manera de actualizar esto... porque si no no refleja cambios en la array???
+
 function showIndexElements() {
     detailsList = document.createElement("ul");
     detailsList.classList.add("array-details-list-indexes")
