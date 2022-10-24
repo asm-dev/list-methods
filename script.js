@@ -1,17 +1,11 @@
 array = [1,2,3,4,5]
 
+function displayNotAvailable() {
+    alert("This button isn't working corrently, please bear with us while we finish building it :)")
+}
+
 function updateArray() {
     document.getElementById("new-list").innerHTML = array;
-}
-
-function reverseList() {
-    array.reverse();
-    updateArray()
-}
-
-function sortList() {
-    array.sort();
-    updateArray()
 }
 
 function appendElement() {
@@ -33,19 +27,31 @@ function insertElement() {
 }
 
 function clearList() {
-    document.getElementById("new-list").innerHTML = "You have cleared the list. Meaning that the list is emtpy.";
+    document.getElementById("new-list").innerHTML = "You have cleared the list. The list is now emtpy.";
     buttons = [...document.querySelectorAll(".list-method-button")];
     buttons.forEach(function(x){x.style.display = "none";});
     retrieveButtons = [...document.querySelectorAll(".retrieve-list")];
-    retrieveButtons.forEach(function(x){x.style.visibility = "visible";});
+    retrieveButtons.forEach(function(x){x.style.display = "inline";});
+    document.getElementById("new-list").style.letterSpacing = "normal";
+}
+
+function reverseList() {
+    array.reverse();
+    updateArray()
+}
+
+function sortList() {
+    array.sort();
+    updateArray()
 }
 
 function retrieveList() {
     buttons = [...document.querySelectorAll(".list-method-button")];
-    buttons.forEach(function(x){x.style.visibility = "visible";});
+    buttons.forEach(function(x){x.style.display = "inline";});
     updateArray();
     retrieveButtons = [...document.querySelectorAll(".retrieve-list")];
-    retrieveButtons.forEach(function(x){x.style.visibility = "hidden";});
+    retrieveButtons.forEach(function(x){x.style.display = "none";});
+    document.getElementById("new-list").style.letterSpacing = "0.2em";
 }
 
 function retrieveOriginalList() {
@@ -53,32 +59,24 @@ function retrieveOriginalList() {
     retrieveList()
 }
 
-// write function to show lenght, items with index
+//Show len
 
-function showElements() {
+function showElements(items) {
     detailsList = document.createElement("ul");
     detailsList.classList.add("array-details-list-elements")
     detailsList.style.listStyleType = "none";
     document.body.appendChild(detailsList)
-
-    array.forEach(function(x){
-        li = document.createElement("li");
-        detailsList.appendChild(li).innerHTML = x
-    });
-}
-
-// POR MEJORAR --> Si ya hay detalles, o Alert o eliminar viejos y añadir los nuevos, también es manera de actualizar esto... porque si no no refleja cambios en la array???
-
-function showIndexElements() {
-    detailsList = document.createElement("ul");
-    detailsList.classList.add("array-details-list-indexes")
-    detailsList.style.listStyleType = "none";
-    document.body.appendChild(detailsList)
-
-    array.forEach(function(x){
-        li = document.createElement("li");
-        detailsList.appendChild(li).innerHTML = "Index: <b>" + array.indexOf(x) + "</b> ---> " + x
-    });
+    if (items == "items") {
+        array.forEach(function(x){
+            li = document.createElement("li");
+            detailsList.appendChild(li).innerHTML = x;
+        });
+    } else {
+        array.forEach(function(x){
+            li = document.createElement("li");
+            detailsList.appendChild(li).innerHTML = "Index: <b>" + array.indexOf(x) + "</b> ---> " + x
+        })
+    }
 }
 
 function removeListDetails() {
