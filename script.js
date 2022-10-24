@@ -35,7 +35,7 @@ function insertElement() {
 function clearList() {
     document.getElementById("new-list").innerHTML = "You have cleared the list. Meaning that the list is emtpy.";
     buttons = [...document.querySelectorAll(".list-method-button")];
-    buttons.forEach(function(x){x.style.visibility = "hidden";});
+    buttons.forEach(function(x){x.style.display = "none";});
     retrieveButtons = [...document.querySelectorAll(".retrieve-list")];
     retrieveButtons.forEach(function(x){x.style.visibility = "visible";});
 }
