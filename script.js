@@ -1,4 +1,10 @@
-array = [1,2,3,4,5]
+array = ["&#128516;","&#128525;","&#128151;","&#128515;","&#128507;"]
+
+function getEmoji() {
+    emojis = document.getElementById('emojis');
+    emojiText = emojis.options[emojis.selectedIndex].text;
+    return emojiText
+}
 
 function displayNotAvailable() {
     alert("This button isn't working corrently, please bear with us while we finish building it :)")
@@ -9,7 +15,13 @@ function updateArray() {
 }
 
 function appendElement() {
-    array.push(prompt("Please introduce the element you would like to append: "));
+    array.push(getEmoji());
+    updateArray()
+}
+
+function insertElement() {
+    index = prompt("Please introduce the element index: ")
+    array.splice(index, 0, getEmoji());
     updateArray()
 }
 
@@ -19,12 +31,7 @@ function popElement() {
     updateArray()
 }
 
-function insertElement() {
-    element = prompt("Please introduce the element you would like to append: ");
-    index = prompt("Please introduce the element index: ")
-    array.splice(index, 0, element);
-    updateArray()
-}
+
 
 function clearList() {
     document.getElementById("new-list").innerHTML = "You have cleared the list. The list is now emtpy.";
@@ -55,7 +62,7 @@ function retrieveList() {
 }
 
 function retrieveOriginalList() {
-    array = [1,2,3,4,5];
+    array = ["&#128516;","&#128525;","&#128151;","&#128515;","&#128507;"];
     retrieveList()
 }
 

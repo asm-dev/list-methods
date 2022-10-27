@@ -1,4 +1,4 @@
-button[type=button]{
+button[type=button] {
     margin: 2em 0.5em 2em 0.5em;
     padding: 1em 2em 1em 2em;
     font-size: 1em;
@@ -9,22 +9,32 @@ button[type=button]{
 
 }
 
-button[type=button]:hover{
+button[type=button]:hover {
     transition-duration: 0.4s;
     background-color: grey;
     color: white;
 }
 
-.retrieve-list{
+.retrieve-list {
     display: none;
     margin-bottom: 2em;
 }
 
-
-
 #new-list {
     font-size: 2em;
     letter-spacing: 0.2em;
+}
+
+#not-available {
+    background-color: #fae8c5;
+}
+
+#not-available:hover {
+    background-color: #d6a949;
+}
+
+#emojis{
+    margin: 2em;
 }
 
 body {
