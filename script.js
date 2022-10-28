@@ -7,7 +7,7 @@ function getEmoji() {
 }
 
 function displayNotAvailable() {
-    alert("This button isn't working corrently, please bear with us while we finish building it :)")
+    alert("This button isn't working currently, please bear with us while we finish building it :)")
 }
 
 function updateArray() {
@@ -30,8 +30,6 @@ function popElement() {
     array.splice(index, 1);
     updateArray()
 }
-
-
 
 function clearList() {
     document.getElementById("new-list").innerHTML = "You have cleared the list. The list is now emtpy.";
