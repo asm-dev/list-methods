@@ -1,4 +1,4 @@
-array = ["&#128516;","&#128525;","&#128151;","&#128515;","&#128507;"]
+let array = ["&#128516;","&#128525;","&#128151;","&#128515;","&#128507;"]
 
 function getEmoji() {
     emojis = document.getElementById('emojis');
@@ -20,7 +20,7 @@ function appendElement() {
 }
 
 function insertElement() {
-    index = prompt("Please introduce the element index: ")
+    let index = prompt("Please introduce the element index: ")
     array.splice(index, 0, getEmoji());
     updateArray()
 }
@@ -33,9 +33,9 @@ function popElement() {
 
 function clearList() {
     document.getElementById("new-list").innerHTML = "You have cleared the list. The list is now emtpy.";
-    buttons = [...document.querySelectorAll(".list-method-button")];
+    let buttons = [...document.querySelectorAll(".list-method-button")];
     buttons.forEach(function(x){x.style.display = "none";});
-    retrieveButtons = [...document.querySelectorAll(".retrieve-list")];
+    let retrieveButtons = [...document.querySelectorAll(".retrieve-list")];
     retrieveButtons.forEach(function(x){x.style.display = "inline";});
     document.getElementById("new-list").style.letterSpacing = "normal";
 }
@@ -51,10 +51,10 @@ function sortList() {
 }
 
 function retrieveList() {
-    buttons = [...document.querySelectorAll(".list-method-button")];
+    let buttons = [...document.querySelectorAll(".list-method-button")];
     buttons.forEach(function(x){x.style.display = "inline";});
     updateArray();
-    retrieveButtons = [...document.querySelectorAll(".retrieve-list")];
+    let retrieveButtons = [...document.querySelectorAll(".retrieve-list")];
     retrieveButtons.forEach(function(x){x.style.display = "none";});
     document.getElementById("new-list").style.letterSpacing = "0.2em";
 }
@@ -64,25 +64,21 @@ function retrieveOriginalList() {
     retrieveList()
 }
 
-//Show len
 
-function showElements(items) {
+function showElements() {
     detailsList = document.createElement("ul");
     detailsList.classList.add("array-details-list-elements")
     detailsList.style.listStyleType = "none";
     document.body.appendChild(detailsList)
-    if (items == "items") {
-        array.forEach(function(x){
-            li = document.createElement("li");
-            detailsList.appendChild(li).innerHTML = x;
-        });
-    } else {
+    
         array.forEach(function(x){
             li = document.createElement("li");
             detailsList.appendChild(li).innerHTML = "Index: <b>" + array.indexOf(x) + "</b> ---> " + x
-        })
+        });
+        let totalEmojis = array.length;
+        li = document.createElement("li");
+        detailsList.appendChild(li).innerHTML = "Number of items: " + totalEmojis;
     }
-}
 
 function removeListDetails() {
     document.querySelectorAll(".array-details-list-elements").forEach(function(x){x.remove()})
