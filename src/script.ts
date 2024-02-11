@@ -1,9 +1,18 @@
-let array = ["&#128516;","&#128525;","&#128151;","&#128515;","&#128507;"]
+//TODO: RandomMaths para crear emojis. El punto y coma nos debería dar bastante igual
+const ORIGINAL_EMOJI_LIST: string[] = ["&#128516;","&#128525;","&#128151;","&#128515;","&#128507;"]
 
-function getEmoji() {
-    emojis = document.getElementById('emojis');
-    emojiText = emojis.options[emojis.selectedIndex].text;
-    return emojiText
+let emojiList: string[] = [...ORIGINAL_EMOJI_LIST]
+let selectedIndex;
+
+const askForIndex = () => Number(prompt("Please introduce the element index: "))
+
+// TODO: 
+const getEmoji = () => {
+    const emojiSelect = document.getElementById('emojis') as HTMLSelectElement;
+    const selectedEmoji = emojiSelect.options
+    //[emojis.selectedIndex]
+    //const emojiText = selectedEmoji.text;
+    //return emojiText
 }
 
 function displayNotAvailable() {
@@ -11,23 +20,34 @@ function displayNotAvailable() {
 }
 
 function updateArray() {
-    document.getElementById("new-list").innerHTML = array;
+    document.getElementById("new-list").innerHTML = emojiList.toString();
 }
 
+
+//TODO: SWITCH o OPP. Fan o mesmo... 1. Acción 2. Update
+
 function appendElement() {
-    array.push(getEmoji());
+    emojiList.push(getEmoji());
     updateArray()
 }
 
 function insertElement() {
-    let index = prompt("Please introduce the element index: ")
-    array.splice(index, 0, getEmoji());
+    emojiList.splice(askForIndex(), 0, getEmoji());
     updateArray()
 }
 
 function popElement() {
-    index = prompt("Please introduce the element index: ")
-    array.splice(index, 1);
+    emojiList.splice(askForIndex(), 1);
+    updateArray()
+}
+
+function reverseList() {
+    emojiList.reverse();
+    updateArray()
+}
+
+function sortList() {
+    emojiList.sort();
     updateArray()
 }
 
@@ -40,16 +60,8 @@ function clearList() {
     document.getElementById("new-list").style.letterSpacing = "normal";
 }
 
-function reverseList() {
-    array.reverse();
-    updateArray()
-}
 
-function sortList() {
-    array.sort();
-    updateArray()
-}
-
+// ¿Que carallo estou intentando facer aquí?
 function retrieveList() {
     let buttons = [...document.querySelectorAll(".list-method-button")];
     buttons.forEach(function(x){x.style.display = "inline";});
@@ -60,7 +72,7 @@ function retrieveList() {
 }
 
 function retrieveOriginalList() {
-    array = ["&#128516;","&#128525;","&#128151;","&#128515;","&#128507;"];
+    emojiList = [...ORIGINAL_EMOJI_LIST];
     retrieveList()
 }
 

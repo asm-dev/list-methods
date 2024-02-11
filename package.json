@@ -1,0 +1,24 @@
+{
+  "name": "list-methods",
+  "version": "1.0.0",
+  "description": "This repository hosts one of my earliest coding endeavors, where I delved into JS to allow users to have a got at using Python's list methods.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asm-dev/list-methods.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asm-dev/list-methods/issues"
+  },
+  "homepage": "https://github.com/asm-dev/list-methods#readme",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}
