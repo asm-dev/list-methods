@@ -6,19 +6,21 @@ const DEFAULT_EMOJI_LIST: string[] = [
   "&#128507;",
 ];
 
-const emojiSelect = document.getElementById("emojis") as HTMLSelectElement;
+let emojiSelect = document.getElementById("emojis") as HTMLSelectElement;
 
 let emojiList: string[] = [...DEFAULT_EMOJI_LIST];
 
 let selectedEmoji: string = emojiSelect.options[emojiSelect.selectedIndex].text;
 
 // Get when a new emoji is selected
-emojiSelect.addEventListener("change", () => {
+window.addEventListener("emojiChange", () => {
+  console.log("change!");
   selectedEmoji = emojiSelect.options[emojiSelect.selectedIndex].text;
 });
 
-const askForIndex = () =>
+function askForIndex() {
   Number(prompt("Please introduce the element index: "));
+}
 
 function displayNotAvailable(): void {
   alert(
@@ -31,7 +33,7 @@ function updateArray(): void {
 }
 
 //TODO: enum instead of magic strings
-const listMethod = (method: string) => {
+function listMethod(method: string): void {
   if (method === "append") {
     emojiList.push(selectedEmoji);
   }
@@ -48,7 +50,7 @@ const listMethod = (method: string) => {
     emojiList.sort();
   }
   updateArray();
-};
+}
 
 function clearList() {
   document.getElementById("new-list").innerHTML =
