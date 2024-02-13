@@ -6,20 +6,18 @@ const DEFAULT_EMOJI_LIST: string[] = [
   "&#128507;",
 ];
 
-let emojiSelect = document.getElementById("emojis") as HTMLSelectElement;
-
 let emojiList: string[] = [...DEFAULT_EMOJI_LIST];
 
-let selectedEmoji: string = emojiSelect.options[emojiSelect.selectedIndex].text;
+// let selectedEmoji: string = emojiSelect.options[emojiSelect.selectedIndex].text;
 
-// Get when a new emoji is selected
-window.addEventListener("emojiChange", () => {
-  console.log("change!");
-  selectedEmoji = emojiSelect.options[emojiSelect.selectedIndex].text;
-});
+function onSelectOptionsChange() {
+  const select = document.getElementById("emojis") as HTMLSelectElement;
+  console.log(select?.options);
+}
 
-function askForIndex() {
-  Number(prompt("Please introduce the element index: "));
+//TODO: validations
+function askForIndex(): number {
+  return Number(prompt("Please introduce the element index: "));
 }
 
 function displayNotAvailable(): void {
@@ -87,18 +85,18 @@ function retrieveOriginalList() {
 }
 
 function showElements() {
-  detailsList = document.createElement("ul");
+  let detailsList = document.createElement("ul");
   detailsList.classList.add("array-details-list-elements");
   detailsList.style.listStyleType = "none";
   document.body.appendChild(detailsList);
 
   emojiList.forEach(function (x) {
-    li = document.createElement("li");
+    let li = document.createElement("li");
     detailsList.appendChild(li).innerHTML =
-      "Index: <b>" + array.indexOf(x) + "</b> ---> " + x;
+      "Index: <b>" + emojiList.indexOf(x) + "</b> ---> " + x;
   });
-  let totalEmojis = array.length;
-  li = document.createElement("li");
+  let totalEmojis = emojiList.length;
+  let li = document.createElement("li");
   detailsList.appendChild(li).innerHTML = "Number of items: " + totalEmojis;
 }
 

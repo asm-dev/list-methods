@@ -17,13 +17,13 @@ var DEFAULT_EMOJI_LIST = [
 var emojiSelect = document.getElementById("emojis");
 var emojiList = __spreadArray([], DEFAULT_EMOJI_LIST, true);
 var selectedEmoji = emojiSelect.options[emojiSelect.selectedIndex].text;
-// Get when a new emoji is selected
-emojiSelect.addEventListener("change", function () {
-    console.log("change!");
-    selectedEmoji = emojiSelect.options[emojiSelect.selectedIndex].text;
-});
+function onSelectOptionsChange() {
+    var select = document.getElementById("emojis");
+    console.log(select === null || select === void 0 ? void 0 : select.options);
+}
+//TODO: validations
 function askForIndex() {
-    Number(prompt("Please introduce the element index: "));
+    return Number(prompt("Please introduce the element index: "));
 }
 function displayNotAvailable() {
     alert("This button isn't working currently, please bear with us while we finish building it :)");
@@ -79,17 +79,17 @@ function retrieveOriginalList() {
     retrieveList();
 }
 function showElements() {
-    detailsList = document.createElement("ul");
+    var detailsList = document.createElement("ul");
     detailsList.classList.add("array-details-list-elements");
     detailsList.style.listStyleType = "none";
     document.body.appendChild(detailsList);
     emojiList.forEach(function (x) {
-        li = document.createElement("li");
+        var li = document.createElement("li");
         detailsList.appendChild(li).innerHTML =
-            "Index: <b>" + array.indexOf(x) + "</b> ---> " + x;
+            "Index: <b>" + emojiList.indexOf(x) + "</b> ---> " + x;
     });
-    var totalEmojis = array.length;
-    li = document.createElement("li");
+    var totalEmojis = emojiList.length;
+    var li = document.createElement("li");
     detailsList.appendChild(li).innerHTML = "Number of items: " + totalEmojis;
 }
 function removeListDetails() {
