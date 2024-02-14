@@ -1,3 +1,4 @@
+//TODO: let user get more options
 const DEFAULT_EMOJI_LIST: string[] = [
   "&#128516;",
   "&#128525;",
@@ -7,12 +8,17 @@ const DEFAULT_EMOJI_LIST: string[] = [
 ];
 
 let emojiList: string[] = [...DEFAULT_EMOJI_LIST];
+let selectedEmoji: string;
 
-// let selectedEmoji: string = emojiSelect.options[emojiSelect.selectedIndex].text;
+const getSelectedEmoji = (): string => selectedEmoji;
+
+const setSelectedEmoji = (): void => {
+  const select = document.getElementById("emojis") as HTMLSelectElement;
+  selectedEmoji = select.options[select.options.selectedIndex].text;
+};
 
 function onSelectOptionsChange() {
-  const select = document.getElementById("emojis") as HTMLSelectElement;
-  console.log(select?.options);
+  setSelectedEmoji();
 }
 
 //TODO: validations
@@ -27,16 +33,19 @@ function displayNotAvailable(): void {
 }
 
 function updateArray(): void {
-  document.getElementById("new-list").innerHTML = emojiList.toString();
+  const newList = document.getElementById("new-list") as HTMLElement;
+  newList.innerHTML = emojiList.toString();
 }
 
 //TODO: enum instead of magic strings
 function listMethod(method: string): void {
   if (method === "append") {
-    emojiList.push(selectedEmoji);
+    setSelectedEmoji();
+    emojiList.push(getSelectedEmoji());
   }
   if (method === "insert") {
-    emojiList.splice(askForIndex(), 0, selectedEmoji);
+    setSelectedEmoji();
+    emojiList.splice(askForIndex(), 0, getSelectedEmoji());
   }
   if (method === "pop") {
     emojiList.splice(askForIndex(), 1);
