@@ -8,18 +8,11 @@ const DEFAULT_EMOJI_LIST: string[] = [
 ];
 
 let emojiList: string[] = [...DEFAULT_EMOJI_LIST];
-let selectedEmoji: string;
 
-const getSelectedEmoji = (): string => selectedEmoji;
-
-const setSelectedEmoji = (): void => {
+const getSelectedEmoji = (): string => {
   const select = document.getElementById("emojis") as HTMLSelectElement;
-  selectedEmoji = select.options[select.options.selectedIndex].text;
+  return select.options[select.options.selectedIndex].text;
 };
-
-function onSelectOptionsChange() {
-  setSelectedEmoji();
-}
 
 //TODO: validations
 function askForIndex(): number {
@@ -40,11 +33,9 @@ function updateArray(): void {
 //TODO: enum instead of magic strings
 function listMethod(method: string): void {
   if (method === "append") {
-    setSelectedEmoji();
     emojiList.push(getSelectedEmoji());
   }
   if (method === "insert") {
-    setSelectedEmoji();
     emojiList.splice(askForIndex(), 0, getSelectedEmoji());
   }
   if (method === "pop") {

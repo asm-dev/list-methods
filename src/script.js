@@ -8,15 +8,10 @@ const DEFAULT_EMOJI_LIST = [
     "&#128507;",
 ];
 let emojiList = [...DEFAULT_EMOJI_LIST];
-let selectedEmoji;
-const getSelectedEmoji = () => selectedEmoji;
-function setSelectedEmoji() {
+const getSelectedEmoji = () => {
     const select = document.getElementById("emojis");
-    selectedEmoji = select.options[select.options.selectedIndex].text;
-}
-function onSelectOptionsChange() {
-    setSelectedEmoji();
-}
+    return select.options[select.options.selectedIndex].text;
+};
 //TODO: validations
 function askForIndex() {
     return Number(prompt("Please introduce the element index: "));
@@ -25,16 +20,15 @@ function displayNotAvailable() {
     alert("This button isn't working currently, please bear with us while we finish building it :)");
 }
 function updateArray() {
-    document.getElementById("new-list").innerHTML = emojiList.toString();
+    const newList = document.getElementById("new-list");
+    newList.innerHTML = emojiList.toString();
 }
 //TODO: enum instead of magic strings
 function listMethod(method) {
     if (method === "append") {
-        setSelectedEmoji();
         emojiList.push(getSelectedEmoji());
     }
     if (method === "insert") {
-        setSelectedEmoji();
         emojiList.splice(askForIndex(), 0, getSelectedEmoji());
     }
     if (method === "pop") {
