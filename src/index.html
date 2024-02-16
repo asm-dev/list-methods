@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js"></script>
+
+  <meta charset="utf-8">
+  <title>Python lists</title>
+
+</head>
+
+<body>
+
+  <h1>Let's have some fun experimenting with Python lists</h1>
+  <p>The purpose of this page is to provide a space to experiment with Python list methods. You can use different
+    methods to play with the list of emojis below.</p>
+
+  <p id="emojisInDisplay">&#128516;,&#128525;,&#128151;,&#128515;,&#128507;</p>
+
+
+  <label for="emojis"">Choose an emoji:</label>
+    <!-- Add more emojis! -->
+    <select name=" emojis" id="emojisSelect" onchange="onSelectOptionsChange()">
+      <option selected="selected" value="lion">&#129409;</option>
+      <option value="thunder">&#9889;</option>
+      <option value="star">&#127775;</option>
+      <option value="hotDog">&#127789;</option>
+    </select>
+
+    <hr>
+
+    <!-- Add remove! -->
+
+    <button type="button" class="list-method-button" onclick="listMethod('append')"
+      title="Adds an element at the end of the list">append()</button>
+    <button type="button" class="list-method-button" onclick="listMethod('insert')"
+      title="Adds an element at the specified position">insert()</button>
+    <button type="button" class="list-method-button" onclick="listMethod('pop')"
+      title="Removes the element at the specified position">pop()</button>
+    <hr>
+    <button type="button" class="list-method-button" onclick="listMethod('reverse')"
+      title="Reverses the order of the list">reverse()</button>
+    <button type="button" class="list-method-button" onclick="listMethod('sort')" title="Sorts the list">sort()</button>
+    <button type="button" class="list-method-button" onclick="clearList()"
+      title="Removes all the elements from the list">clear()</button>
+
+    <button type="button" class="list-method-button" id="not-available" onclick="displayNotAvailable()"
+      title="Returns a copy of the list">copy()</button>
+    <button type="button" class="list-method-button" id="not-available" onclick="displayNotAvailable()"
+      title="Adds the elements of a list (or any iterable), to the end of the current list">extend()</button>
+    <button type="button" class="list-method-button" id="not-available" onclick="displayNotAvailable()"
+      title="Returns the index of the first element with the specified value">index()</button>
+    <button type="button" class="list-method-button" id="not-available" onclick="displayNotAvailable()"
+      title="Returns the number of elements with the specified value">count()</button>
+    <button type="button" class="list-method-button" id="not-available" onclick="displayNotAvailable()"
+      title="Removes the first item with the specified value">remove()</button>
+
+    <button type="button" class="retrieve-list" onclick="retrieveList()">Retrieve previous list</button>
+    <button type="button" class="retrieve-list" onclick="retrieveOriginalList()">Retrieve original list</button>
+
+    <br>
+
+
+    <button type="button" class="show-details" onclick="showElements()">Show details</button>
+    <button type="button" class="show-details" onclick="removeListDetails()">Remove details</button>
+
+
+</body>
+
+</html>
