@@ -17,12 +17,12 @@
   <p>The purpose of this page is to provide a space to experiment with Python list methods. You can use different
     methods to play with the list of emojis below.</p>
 
-  <p id="new-list">&#128516;,&#128525;,&#128151;,&#128515;,&#128507;</p>
+  <p id="emojisInDisplay">&#128516;,&#128525;,&#128151;,&#128515;,&#128507;</p>
 
 
   <label for="emojis"">Choose an emoji:</label>
     <!-- Add more emojis! -->
-    <select name=" emojis" id="emojis" onchange="onSelectOptionsChange()">
+    <select name=" emojis" id="emojisSelect" onchange="onSelectOptionsChange()">
       <option selected="selected" value="lion">&#129409;</option>
       <option value="thunder">&#9889;</option>
       <option value="star">&#127775;</option>
@@ -32,7 +32,6 @@
     <hr>
 
     <!-- Add remove! -->
-<!-- TODO: too much duplication -->
 
     <button type="button" class="list-method-button" onclick="listMethod('append')"
       title="Adds an element at the end of the list">append()</button>

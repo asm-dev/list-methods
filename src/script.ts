@@ -1,4 +1,3 @@
-//TODO: let user get more options
 const DEFAULT_EMOJI_LIST: string[] = [
   "&#128516;",
   "&#128525;",
@@ -9,15 +8,30 @@ const DEFAULT_EMOJI_LIST: string[] = [
 
 let emojiList: string[] = [...DEFAULT_EMOJI_LIST];
 
+const getDisplayedEmojis = (): HTMLElement | null => {
+  return document.getElementById("emojisInDisplay");
+};
+
+const getListMethodbuttons = (): HTMLElement[] | null => {
+  return [...document.querySelectorAll(".list-method-button")] as HTMLElement[];
+};
+
+const getRetrieveListButtons = (): HTMLElement[] | null => {
+  return [...document.querySelectorAll(".retrieve-list")] as HTMLElement[];
+};
+
 const getSelectedEmoji = (): string => {
-  const select = document.getElementById("emojis") as HTMLSelectElement;
+  const select = document.getElementById("emojisSelect") as HTMLSelectElement;
   return select.options[select.options.selectedIndex].text;
 };
 
-//TODO: validations
-function askForIndex(): number {
+const askForIndex = (): number => {
   return Number(prompt("Please introduce the element index: "));
-}
+};
+
+const onSelectOptionsChange = (): void => {
+  console.log("nice pick!");
+};
 
 function displayNotAvailable(): void {
   alert(
@@ -25,12 +39,14 @@ function displayNotAvailable(): void {
   );
 }
 
-function updateArray(): void {
-  const newList = document.getElementById("new-list") as HTMLElement;
-  newList.innerHTML = emojiList.toString();
+function updateDisplayedEmojis(): void {
+  const displayedEmojis = getDisplayedEmojis();
+
+  if (displayedEmojis) {
+    displayedEmojis.innerHTML = emojiList.toString();
+  }
 }
 
-//TODO: enum instead of magic strings
 function listMethod(method: string): void {
   if (method === "append") {
     emojiList.push(getSelectedEmoji());
@@ -47,36 +63,47 @@ function listMethod(method: string): void {
   if (method === "sort") {
     emojiList.sort();
   }
-  updateArray();
+  updateDisplayedEmojis();
 }
 
 function clearList() {
-  document.getElementById("new-list").innerHTML =
-    "You have cleared the list. The list is now emtpy.";
-  let buttons = [...document.querySelectorAll(".list-method-button")];
-  buttons.forEach(function (x) {
-    x.style.display = "none";
-  });
-  let retrieveButtons = [...document.querySelectorAll(".retrieve-list")];
-  retrieveButtons.forEach(function (x) {
-    x.style.display = "inline";
-  });
-  document.getElementById("new-list").style.letterSpacing = "normal";
+  const displayedEmojis = getDisplayedEmojis();
+  const listMethodButtons = getListMethodbuttons();
+  const retrieveListButtons = getRetrieveListButtons();
+
+  if (displayedEmojis) {
+    displayedEmojis.innerHTML =
+      "You have cleared the list. The list is now emtpy.";
+    displayedEmojis.style.letterSpacing = "normal";
+    if (listMethodButtons) {
+      listMethodButtons.forEach((button) => (button.style.display = "none"));
+    }
+    if (retrieveListButtons) {
+      retrieveListButtons.forEach(
+        (button) => (button.style.display = "inline")
+      );
+    }
+  }
 }
 
-// ¿Que carallo estou intentando facer aquí?
 function retrieveList() {
-  let buttons = [
-    ...document.querySelectorAll(".list-method-button"),
-  ] as HTMLElement[];
-  buttons.forEach((button) => (button.style.display = "inline"));
+  const displayedEmojis = getDisplayedEmojis();
+  const listMethodButtons = getListMethodbuttons();
+  const retrieveListButtons = getRetrieveListButtons();
 
-  updateArray();
-  let retrieveButtons = [...document.querySelectorAll(".retrieve-list")];
-  retrieveButtons.forEach(function (x) {
-    x.style.display = "none";
-  });
-  document.getElementById("new-list").style.letterSpacing = "0.2em";
+  if (listMethodButtons) {
+    listMethodButtons.forEach((button) => (button.style.display = "inline"));
+  }
+
+  updateDisplayedEmojis();
+
+  if (retrieveListButtons) {
+    retrieveListButtons.forEach((button) => (button.style.display = "none"));
+  }
+
+  if (displayedEmojis) {
+    displayedEmojis.style.letterSpacing = "0.2em";
+  }
 }
 
 function retrieveOriginalList() {
