@@ -18,16 +18,19 @@
     methods to play with the list of emojis below.</p>
 
   <p id="emojisInDisplay">&#128516;,&#128525;,&#128151;,&#128515;,&#128507;</p>
-
-
-  <label for="emojis"">Choose an emoji:</label>
-    <!-- Add more emojis! -->
+  <div><button onclick="substituteByRandom()">Ramdomise</button></div>
+  <div id="selectContainer">
+    <label id="selectLabel" for="emojis"">Choose an emoji:</label>
     <select name=" emojis" id="emojisSelect" onchange="onSelectOptionsChange()">
       <option selected="selected" value="lion">&#129409;</option>
       <option value="thunder">&#9889;</option>
       <option value="star">&#127775;</option>
       <option value="hotDog">&#127789;</option>
     </select>
+  </div>
+  
+
+  
 
     <hr>
 

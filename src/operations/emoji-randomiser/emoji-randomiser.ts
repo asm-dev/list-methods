@@ -11,11 +11,10 @@ const getRandomEmoji = (): string => {
   return String.fromCodePoint(unicode);
 };
 
-//TODO: use getRandomEmoji to push n randomly made emojis
-const emojiRandomList = (number: number): string[] => {
-  let emojiList = [];
+export const emojiRandomList = (number: number): string[] => {
+  let emojiList: string[] = [];
   for (let i = 0; i < number; i++) {
-    emojiList.push(`Emoji number ${i + 1}`);
+    emojiList.push(getRandomEmoji());
   }
   return emojiList;
 };

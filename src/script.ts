@@ -1,3 +1,5 @@
+import { emojiRandomList } from "./operations/emoji-randomiser/emoji-randomiser";
+
 const DEFAULT_EMOJI_LIST: string[] = [
   "&#128516;",
   "&#128525;",
@@ -37,6 +39,15 @@ function displayNotAvailable(): void {
   alert(
     "This button isn't working currently, please bear with us while we finish building it :)"
   );
+}
+
+function substituteByRandom(): void {
+  const displayedEmojis = getDisplayedEmojis();
+  const randomEmojis = emojiRandomList(DEFAULT_EMOJI_LIST.length);
+
+  if (displayedEmojis) {
+    displayedEmojis.innerHTML = randomEmojis.toString();
+  }
 }
 
 function updateDisplayedEmojis(): void {

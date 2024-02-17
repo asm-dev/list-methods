@@ -1,4 +1,6 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const emoji_randomiser_1 = require("./operations/emoji-randomiser/emoji-randomiser");
 const DEFAULT_EMOJI_LIST = [
     "&#128516;",
     "&#128525;",
@@ -28,6 +30,13 @@ const onSelectOptionsChange = () => {
 };
 function displayNotAvailable() {
     alert("This button isn't working currently, please bear with us while we finish building it :)");
+}
+function substituteByRandom() {
+    const displayedEmojis = getDisplayedEmojis();
+    const randomEmojis = (0, emoji_randomiser_1.emojiRandomList)(DEFAULT_EMOJI_LIST.length);
+    if (displayedEmojis) {
+        displayedEmojis.innerHTML = randomEmojis.toString();
+    }
 }
 function updateDisplayedEmojis() {
     const displayedEmojis = getDisplayedEmojis();
