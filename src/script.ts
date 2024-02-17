@@ -66,7 +66,7 @@ function listMethod(method: string): void {
   updateDisplayedEmojis();
 }
 
-function clearList() {
+function clearList(): void {
   const displayedEmojis = getDisplayedEmojis();
   const listMethodButtons = getListMethodbuttons();
   const retrieveListButtons = getRetrieveListButtons();
@@ -86,7 +86,7 @@ function clearList() {
   }
 }
 
-function retrieveList() {
+function retrieveList(): void {
   const displayedEmojis = getDisplayedEmojis();
   const listMethodButtons = getListMethodbuttons();
   const retrieveListButtons = getRetrieveListButtons();
@@ -106,12 +106,12 @@ function retrieveList() {
   }
 }
 
-function retrieveOriginalList() {
+function retrieveOriginalList(): void {
   emojiList = [...DEFAULT_EMOJI_LIST];
   retrieveList();
 }
 
-function showElements() {
+function showElements(): void {
   let detailsList = document.createElement("ul");
   detailsList.classList.add("array-details-list-elements");
   detailsList.style.listStyleType = "none";
@@ -127,7 +127,7 @@ function showElements() {
   detailsList.appendChild(li).innerHTML = "Number of items: " + totalEmojis;
 }
 
-function removeListDetails() {
+function removeListDetails(): void {
   document
     .querySelectorAll(".array-details-list-elements")
     .forEach(function (x) {
