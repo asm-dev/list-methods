@@ -6,3 +6,6 @@ This repository hosts one of my earliest coding endeavors, where I delved into J
 
 ### Get Started
 Ready to dive in? Explore the project [here!](https://asm-dev.github.io/list-methods/)
+
+### Update in Progress!
+🚀 **New and Improved Version Coming Soon** - I'm currently working on the second iteration of this project, aimed at expanding and enhancing the features of this initial prototype. Stay tuned for exciting updates as I continue to evolve and improve this little fella
