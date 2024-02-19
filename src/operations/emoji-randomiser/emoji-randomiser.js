@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.emojiRandomList = void 0;
 //TODO: use this validation for function test!
 const EmojiRange = /\uD83D[\uDE00-\uDE4F]/;
 const isEmojiInRange = (str) => EmojiRange.test(str);
@@ -10,11 +7,10 @@ const getRandomEmoji = () => {
     const unicode = Math.floor(Math.random() * (rangeMax - rangeMin + 1)) + rangeMin;
     return String.fromCodePoint(unicode);
 };
-const emojiRandomList = (number) => {
+export const emojiRandomList = (number) => {
     let emojiList = [];
     for (let i = 0; i < number; i++) {
         emojiList.push(getRandomEmoji());
     }
     return emojiList;
 };
-exports.emojiRandomList = emojiRandomList;

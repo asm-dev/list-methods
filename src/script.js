@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const emoji_randomiser_1 = require("./operations/emoji-randomiser/emoji-randomiser");
+import { emojiRandomList } from "./operations/emoji-randomiser/emoji-randomiser";
 const DEFAULT_EMOJI_LIST = [
     "&#128516;",
     "&#128525;",
@@ -13,10 +11,12 @@ const getDisplayedEmojis = () => {
     return document.getElementById("emojisInDisplay");
 };
 const getListMethodbuttons = () => {
-    return [...document.querySelectorAll(".list-method-button")];
+    const buttons = document.querySelectorAll(".list-method-button");
+    return Array.from(buttons);
 };
 const getRetrieveListButtons = () => {
-    return [...document.querySelectorAll(".retrieve-list")];
+    const buttons = document.querySelectorAll(".retrieve-list");
+    return Array.from(buttons);
 };
 const getSelectedEmoji = () => {
     const select = document.getElementById("emojisSelect");
@@ -32,8 +32,9 @@ function displayNotAvailable() {
     alert("This button isn't working currently, please bear with us while we finish building it :)");
 }
 function substituteByRandom() {
+    console.log("hola", getDisplayedEmojis());
     const displayedEmojis = getDisplayedEmojis();
-    const randomEmojis = (0, emoji_randomiser_1.emojiRandomList)(DEFAULT_EMOJI_LIST.length);
+    const randomEmojis = emojiRandomList(DEFAULT_EMOJI_LIST.length);
     if (displayedEmojis) {
         displayedEmojis.innerHTML = randomEmojis.toString();
     }

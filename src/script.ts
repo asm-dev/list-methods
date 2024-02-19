@@ -15,11 +15,16 @@ const getDisplayedEmojis = (): HTMLElement | null => {
 };
 
 const getListMethodbuttons = (): HTMLElement[] | null => {
-  return [...document.querySelectorAll(".list-method-button")] as HTMLElement[];
+  const buttons: NodeListOf<Element> = document.querySelectorAll(
+    ".list-method-button"
+  );
+  return Array.from(buttons) as HTMLElement[];
 };
 
 const getRetrieveListButtons = (): HTMLElement[] | null => {
-  return [...document.querySelectorAll(".retrieve-list")] as HTMLElement[];
+  const buttons: NodeListOf<Element> =
+    document.querySelectorAll(".retrieve-list");
+  return Array.from(buttons) as HTMLElement[];
 };
 
 const getSelectedEmoji = (): string => {
@@ -42,6 +47,7 @@ function displayNotAvailable(): void {
 }
 
 function substituteByRandom(): void {
+  console.log("hola", getDisplayedEmojis());
   const displayedEmojis = getDisplayedEmojis();
   const randomEmojis = emojiRandomList(DEFAULT_EMOJI_LIST.length);
 
