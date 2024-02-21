@@ -1,4 +1,4 @@
-import { emojiRandomList } from "./operations/emoji-randomiser/emoji-randomiser";
+import { emojiRandomList } from "./operations/emoji-randomiser/emoji-randomiser.js";
 
 const DEFAULT_EMOJI_LIST: string[] = [
   "&#128516;",

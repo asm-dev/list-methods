@@ -1,4 +1,3 @@
-//TODO: use this validation for function test!
 const EmojiRange = /\uD83D[\uDE00-\uDE4F]/;
 const isEmojiInRange = (str) => EmojiRange.test(str);
 const getRandomEmoji = () => {

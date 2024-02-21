@@ -1,4 +1,4 @@
-import { emojiRandomList } from "./operations/emoji-randomiser/emoji-randomiser";
+import { emojiRandomList } from "./operations/emoji-randomiser/emoji-randomiser.js";
 const DEFAULT_EMOJI_LIST = [
     "&#128516;",
     "&#128525;",
@@ -31,7 +31,7 @@ const onSelectOptionsChange = () => {
 function displayNotAvailable() {
     alert("This button isn't working currently, please bear with us while we finish building it :)");
 }
-function substituteByRandom() {
+export function substituteByRandom() {
     console.log("hola", getDisplayedEmojis());
     const displayedEmojis = getDisplayedEmojis();
     const randomEmojis = emojiRandomList(DEFAULT_EMOJI_LIST.length);
